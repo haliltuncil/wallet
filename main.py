@@ -19,17 +19,29 @@ while True:
         print()
         print("--Add Money--")
         try:
-            amount = float(input("Enter amount to add: "))
-            if amount <= 0:
+            add_money_amount = float(input("Enter amount to add: "))
+            if add_money_amount <= 0:
                 print("Amount must be greater than 0.")
             else:
-                balance += amount
+                balance += add_money_amount
                 print(f"Your new balance is {balance:.2f}$")
         except ValueError:
             print("Please enter a number.")
     elif choice == "3":
         print()
         print("--Withdraw Money--")
+        try:
+            withdraw_money_amount = float(input("Enter amount to withdraw: "))
+            if withdraw_money_amount <= 0:
+                print("Amount must be greater than 0.")
+            elif withdraw_money_amount > balance:
+                print("Insufficient balance.")
+            else:
+                balance -= withdraw_money_amount
+                print(f"Your new balance {balance:.2f}$")
+        except ValueError:
+            print("Please enter a number.")
+
     elif choice == "4":
         print()
         print("--Exit--")
