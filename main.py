@@ -6,6 +6,20 @@ def show_balance(balance):
     print("--Show Balance--")
     print(f"Your balance is: {balance:.2f}$")
     
+def add_money(balance):
+    print()
+    print("--Add Money--")
+    try:
+        add_money_amount = float(input("Enter amount to add: "))
+        if add_money_amount <= 0:
+            print("Amount must be greater than 0.")
+        else:
+            balance += add_money_amount
+            print(f"Your new balance is {balance:.2f}$")
+    except ValueError:
+            print("Please enter a number.")
+    return balance
+
 while True:
     print()
     print("1-)Show Balance")
@@ -20,17 +34,7 @@ while True:
     if choice == "1":
        show_balance(balance)
     elif choice == "2":
-        print()
-        print("--Add Money--")
-        try:
-            add_money_amount = float(input("Enter amount to add: "))
-            if add_money_amount <= 0:
-                print("Amount must be greater than 0.")
-            else:
-                balance += add_money_amount
-                print(f"Your new balance is {balance:.2f}$")
-        except ValueError:
-            print("Please enter a number.")
+       balance = add_money(balance)
     elif choice == "3":
         print()
         print("--Withdraw Money--")
