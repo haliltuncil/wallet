@@ -1,5 +1,11 @@
 print("Wallet App")
 balance = 0
+
+def show_balance(balance):
+    print()
+    print("--Show Balance--")
+    print(f"Your balance is: {balance:.2f}$")
+    
 while True:
     print()
     print("1-)Show Balance")
@@ -12,9 +18,7 @@ while True:
     print()
     choice = input("Your Choice: ")
     if choice == "1":
-        print()
-        print("--Show Balance--")
-        print(f"Your balance is: {balance:.2f}$")
+       show_balance(balance)
     elif choice == "2":
         print()
         print("--Add Money--")
