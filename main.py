@@ -17,7 +17,23 @@ def add_money(balance):
             balance += add_money_amount
             print(f"Your new balance is {balance:.2f}$")
     except ValueError:
-            print("Please enter a number.")
+        print("Please enter a number.")
+    return balance
+
+def withdraw_money(balance):
+    print()
+    print("--Withdraw Money--")
+    try:
+        withdraw_money_amount = float(input("Enter amount to withdraw: "))
+        if withdraw_money_amount <= 0:
+            print("Amount must be greater than 0.")
+        elif withdraw_money_amount > balance:
+            print("Insufficient balance.")
+        else:
+            balance -= withdraw_money_amount
+            print(f"Your new balance is {balance:.2f}$")
+    except ValueError:
+        print("Please enter a number.")
     return balance
 
 while True:
@@ -36,20 +52,7 @@ while True:
     elif choice == "2":
        balance = add_money(balance)
     elif choice == "3":
-        print()
-        print("--Withdraw Money--")
-        try:
-            withdraw_money_amount = float(input("Enter amount to withdraw: "))
-            if withdraw_money_amount <= 0:
-                print("Amount must be greater than 0.")
-            elif withdraw_money_amount > balance:
-                print("Insufficient balance.")
-            else:
-                balance -= withdraw_money_amount
-                print(f"Your new balance {balance:.2f}$")
-        except ValueError:
-            print("Please enter a number.")
-
+        balance = withdraw_money(balance)
     elif choice == "4":
         print()
         print("--Exit--")
