@@ -36,7 +36,7 @@ def withdraw_money(balance):
         print("Please enter a number.")
     return balance
 
-while True:
+def show_menu():
     print()
     print("1-)Show Balance")
     print()
@@ -46,6 +46,9 @@ while True:
     print()
     print("4-)Exit")
     print()
+
+while True:
+    show_menu()
     choice = input("Your Choice: ")
     if choice == "1":
        show_balance(balance)
