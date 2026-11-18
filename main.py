@@ -47,7 +47,9 @@ def show_menu():
     print()
     print("4-)Add Assets")
     print()
-    print("5-)Exit")
+    print("5-)List Assets")
+    print()
+    print("6-)Exit")
     print()
 
 def add_assets(assets):
@@ -78,8 +80,17 @@ def add_assets(assets):
         assets[assets_name]["amount"] += assets_amount
     else:
         assets[assets_name] = {"amount" : assets_amount, "buy price": assets_buy_price}
-    
     return assets
+
+def list_assets(assets):
+        if not assets:
+            print("No assets yet.")
+            return
+        else:
+            print("--Your Assets--")
+            for name, info in assets.items():
+                print(f"{name}: {info["amount"]} units, average buy price: {info["buy price"]:.2f}$")
+
 
 while True:
     show_menu()
@@ -92,8 +103,9 @@ while True:
         balance = withdraw_money(balance)
     elif choice == "4":
         assets = add_assets(assets)
-        print(assets)
     elif choice == "5":
+        list_assets(assets)
+    elif choice == "6":
         print()
         print("--Exit--")
         break
